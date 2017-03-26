@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import java.awt.Cursor;
 
 public class InterfaceMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +28,7 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().setBackground(new Color(139, 0, 0));
 		getContentPane().setLayout(null);
 		
-		JLabel labelDomino = new JLabel("Dominï¿½");
+		JLabel labelDomino = new JLabel("Dominó");
 		labelDomino.setForeground(Color.WHITE);
 		labelDomino.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDomino.setFont(new Font("Brush Script MT", Font.PLAIN, 180));
@@ -35,6 +36,7 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().add(labelDomino);
 		
 		botaoNovaPartida = new JButton();
+		botaoNovaPartida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoNovaPartida.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-pressed.png"));
 		botaoNovaPartida.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-rollover.png"));
 		botaoNovaPartida.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-rollover.png"));
@@ -47,6 +49,7 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().add(botaoNovaPartida);
 		
 		botaoContinuarPartida = new JButton();
+		botaoContinuarPartida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoContinuarPartida.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-pressed.png"));
 		botaoContinuarPartida.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-rollover.png"));
 		botaoContinuarPartida.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-rollover.png"));
@@ -59,6 +62,7 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().add(botaoContinuarPartida);
 		
 		botaoRanking = new JButton();
+		botaoRanking.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoRanking.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-pressed.png"));
 		botaoRanking.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-rollover.png"));
 		botaoRanking.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-rollover.png"));
@@ -71,6 +75,7 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().add(botaoRanking);
 		
 		JButton botaoLogout = new JButton();
+		botaoLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoLogout.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-pressed.png"));
 		botaoLogout.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-rollover.png"));
 		botaoLogout.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-rollover.png"));
@@ -102,15 +107,18 @@ public class InterfaceMenu extends JFrame {
 		getContentPane().add(opcoes);
 		
 		JButton jogoNormal = new JButton("f\u00E1cil");
+		jogoNormal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		jogoNormal.setBounds(128, 11, 240, 70);
 		opcoes.add(jogoNormal);
 		
 		JButton jogoDificil = new JButton("dificil");
+		jogoDificil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		jogoDificil.setEnabled(false);
 		jogoDificil.setBounds(128, 92, 240, 70);
 		opcoes.add(jogoDificil);
 		
 		JButton botaoCancelar = new JButton("");
+		botaoCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoCancelar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-disabled.png"));
 		botaoCancelar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
 		botaoCancelar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
@@ -122,7 +130,7 @@ public class InterfaceMenu extends JFrame {
 		botaoCancelar.setBounds(190, 193, 120, 35);
 		opcoes.add(botaoCancelar);
 		
-		// aparece painel das partidas
+		// actions listeners
 		botaoNovaPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				opcoes.setVisible(true);
@@ -132,22 +140,48 @@ public class InterfaceMenu extends JFrame {
 			}
 		});
 		
-		// nova partida Fï¿½cil
+		// nova partida facil
 		jogoNormal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-// O jogador tbm vai entrar no array list de parcticipantes
-				//Wendell, analisa essa nova forma de colocaï¿½ï¿½o dos usuï¿½rios, pq achei melhor para criar os metodos gerais dos participantes
-
-				ArrayList<Participante> participantes = null;
+				
+				ArrayList<Participante> participantes = new ArrayList<Participante>();
+				participantes.add(jogador_logado);
+				
+				Participante IA1;
+				if (jogador_logado.getIcone().contains("Pernalonga")){
+					IA1 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+				} else {
+					IA1 = new InteligenciaArtificial("Pernalonga", ".\\image\\icon\\Pernalonga.png", false);
+				}
+				participantes.add(IA1);
+				
+				Participante IA2;
+				if (jogador_logado.getIcone().contains("Lola")){
+					IA2 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+				} else {
+					IA2 = new InteligenciaArtificial("Lola", ".\\image\\icon\\Lola.png", false);
+				}
+				participantes.add(IA2);
+				
+				Participante IA3;
+				if (jogador_logado.getIcone().contains("Patolino")){
+					IA3 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+				} else {
+					IA3 = new InteligenciaArtificial("Patolino", ".\\image\\icon\\Patolino.png", false);
+				}
+				participantes.add(IA3);
+				
 				Partida part = new Partida(participantes);
 
-				
-				for (int valor1 = 6; valor1 >= 0; valor1--) {
-					for (int valor2 = valor1; valor2 >= 0; valor2--) {
-						Peca peca = new Peca(valor1, valor2);
+				for (int valor1 = 0; valor1 <= 6; valor1++) {
+					for (int valor2 = valor1; valor2 <= 6; valor2++) {
+						Peca peca = new Peca(valor1, valor2, false);
 						part.pecas_dormidas.add(peca);
 					}
 				}
+				
+				dispose();
+				new InterfaceJogo(part);
 			}
 		});
 		
