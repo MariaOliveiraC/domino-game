@@ -29,7 +29,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
+import controle.DAO;
 import modelo.*;
+import java.awt.FlowLayout;
 
 public class InterfaceJogo extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +40,7 @@ public class InterfaceJogo extends JFrame {
 	
 	JPanel jogadorPecas, iaCimaPecas, iaEsquerdaPecas, iaDireitaPecas, tabuleiro;
 	JLabel inforCima, inforBaixo, inforEsquerda, inforDireita;
+	DAO dao = new DAO();
 
 	public InterfaceJogo(final Partida part){
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -75,7 +78,7 @@ public class InterfaceJogo extends JFrame {
 		iaCimaPecas = new JPanel();
 		iaCimaPecas.setBackground(new Color(139, 0, 0));
 		iaCimaPecas.setMinimumSize(new Dimension(100, 100));
-		iaCimaPecas.setMaximumSize(new Dimension(494, 100));
+		iaCimaPecas.setMaximumSize(new Dimension(396, 100));
 		iaUpPainel.add(iaCimaPecas);
 		
 		JPanel inforCimaP = new JPanel();
@@ -83,29 +86,39 @@ public class InterfaceJogo extends JFrame {
 		inforCimaP.setMinimumSize(new Dimension(100, 100));
 		inforCimaP.setMaximumSize(new Dimension(100, 100));
 		iaUpPainel.add(inforCimaP);
-		inforCimaP.setLayout(new BoxLayout(inforCimaP, BoxLayout.PAGE_AXIS));
+		inforCimaP.setLayout(new BoxLayout(inforCimaP, BoxLayout.LINE_AXIS));
+		
+		JPanel inforCimaP2 = new JPanel();
+		inforCimaP2.setBackground(new Color(139, 0, 0));
+		inforCimaP2.setPreferredSize(new Dimension(100, 100));
+		inforCimaP2.setMinimumSize(new Dimension(100, 100));
+		inforCimaP2.setMaximumSize(new Dimension(100, 100));
+		inforCimaP.add(inforCimaP2);
 		
 		JLabel nomeCim = new JLabel(part.participantes.get(2).getNome());
+		inforCimaP2.add(nomeCim);
 		nomeCim.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforCimaP.add(nomeCim);
 		nomeCim.setHorizontalAlignment(SwingConstants.RIGHT);
-		nomeCim.setFont(new Font("Brush Script MT", Font.BOLD, 17));
+		nomeCim.setFont(new Font("Brush Script MT", Font.BOLD, 25));
 		nomeCim.setForeground(Color.WHITE);
 		
 		JLabel pontosCim = new JLabel("Pontos: " + part.pontuacao_jogadores[2]);
+		pontosCim.setPreferredSize(new Dimension(90, 30));
+		pontosCim.setMinimumSize(new Dimension(90, 14));
+		inforCimaP2.add(pontosCim);
 		pontosCim.setHorizontalAlignment(SwingConstants.CENTER);
 		pontosCim.setMaximumSize(new Dimension(90, 14));
-		pontosCim.setFont(new Font("Brush Script MT", Font.BOLD, 14));
+		pontosCim.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
 		pontosCim.setForeground(Color.WHITE);
 		pontosCim.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforCimaP.add(pontosCim);
 		
 		inforCima = new JLabel(new ImageIcon(part.participantes.get(2).getIcone()));
+		inforCima.setPreferredSize(new Dimension(100, 100));
+		iaUpPainel.add(inforCima);
+		inforCima.setMaximumSize(new Dimension(100, 100));
 		inforCima.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforCimaP.add(inforCima);
 		inforCima.setBorder(new LineBorder(new Color(0, 0, 0), 5));
-		inforCima.setMinimumSize(new Dimension(100, 60));
-		inforCima.setMaximumSize(new Dimension(100, 60));
+		inforCima.setMinimumSize(new Dimension(100, 100));
 		
 		JPanel blockCimDir = new JPanel();
 		blockCimDir.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -143,6 +156,7 @@ public class InterfaceJogo extends JFrame {
 					@Override
 					public void run() {
 						contador++;
+						part.tempoPartida++;
 						int seg = contador % 60;
 						int min = contador / 60;
 						int hora = min / 60;
@@ -163,38 +177,42 @@ public class InterfaceJogo extends JFrame {
 		getContentPane().add(iaLeftPainel, BorderLayout.WEST);
 		iaLeftPainel.setLayout(new BoxLayout(iaLeftPainel, BoxLayout.PAGE_AXIS));
 		
+		inforEsquerda = new JLabel(new ImageIcon(part.participantes.get(1).getIcone()));
+		inforEsquerda.setPreferredSize(new Dimension(10, 100));
+		iaLeftPainel.add(inforEsquerda);
+		inforEsquerda.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inforEsquerda.setBorder(new LineBorder(new Color(0, 0, 0), 5));
+		inforEsquerda.setMinimumSize(new Dimension(100, 100));
+		inforEsquerda.setMaximumSize(new Dimension(100, 100));
+		
 		JPanel inforEsquerdaP = new JPanel();
+		inforEsquerdaP.setPreferredSize(new Dimension(100, 100));
 		inforEsquerdaP.setBackground(new Color(139, 0, 0));
 		inforEsquerdaP.setMinimumSize(new Dimension(100, 100));
 		inforEsquerdaP.setMaximumSize(new Dimension(100, 100));
 		iaLeftPainel.add(inforEsquerdaP);
-		inforEsquerdaP.setLayout(new BoxLayout(inforEsquerdaP, BoxLayout.PAGE_AXIS));
+		inforEsquerdaP.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JLabel nomeEsq = new JLabel(part.participantes.get(1).getNome());
 		nomeEsq.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforEsquerdaP.add(nomeEsq);
-		nomeEsq.setFont(new Font("Brush Script MT", Font.BOLD, 17));
+		nomeEsq.setFont(new Font("Brush Script MT", Font.BOLD, 25));
 		nomeEsq.setForeground(Color.WHITE);
 		
 		JLabel pontosEsq = new JLabel("Pontos: " + part.pontuacao_jogadores[1]);
+		pontosEsq.setMinimumSize(new Dimension(90, 14));
+		pontosEsq.setPreferredSize(new Dimension(90, 30));
 		pontosEsq.setHorizontalAlignment(SwingConstants.CENTER);
 		pontosEsq.setMaximumSize(new Dimension(90, 14));
-		pontosEsq.setFont(new Font("Brush Script MT", Font.BOLD, 14));
+		pontosEsq.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
 		pontosEsq.setForeground(Color.WHITE);
 		pontosEsq.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforEsquerdaP.add(pontosEsq);
 		
-		inforEsquerda = new JLabel(new ImageIcon(part.participantes.get(1).getIcone()));
-		inforEsquerda.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforEsquerdaP.add(inforEsquerda);
-		inforEsquerda.setBorder(new LineBorder(new Color(0, 0, 0), 5));
-		inforEsquerda.setMinimumSize(new Dimension(100, 60));
-		inforEsquerda.setMaximumSize(new Dimension(100, 60));
-		
 		iaEsquerdaPecas = new JPanel();
 		iaEsquerdaPecas.setBackground(new Color(139, 0, 0));
 		iaEsquerdaPecas.setMinimumSize(new Dimension(100, 100));
-		iaEsquerdaPecas.setMaximumSize(new Dimension(100, 494));
+		iaEsquerdaPecas.setMaximumSize(new Dimension(100, 396));
 		iaLeftPainel.add(iaEsquerdaPecas);
 		
 		JPanel jogadorPainel = new JPanel();
@@ -213,36 +231,45 @@ public class InterfaceJogo extends JFrame {
 		
 		JPanel inforBaixoP = new JPanel();
 		inforBaixoP.setBackground(new Color(139, 0, 0));
-		inforBaixoP.setMinimumSize(new Dimension(100, 100));
-		inforBaixoP.setMaximumSize(new Dimension(100, 100));
+		inforBaixoP.setMinimumSize(new Dimension(200, 100));
+		inforBaixoP.setMaximumSize(new Dimension(200, 100));
 		jogadorPainel.add(inforBaixoP);
-		inforBaixoP.setLayout(new BoxLayout(inforBaixoP, BoxLayout.PAGE_AXIS));
-		
-		JLabel nomeBai = new JLabel(part.participantes.get(0).getNome());
-		nomeBai.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforBaixoP.add(nomeBai);
-		nomeBai.setFont(new Font("Brush Script MT", Font.BOLD, 17));
-		nomeBai.setForeground(Color.WHITE);
-		
-		JLabel pontosBai = new JLabel("Pontos: " + part.pontuacao_jogadores[0]);
-		pontosBai.setHorizontalAlignment(SwingConstants.CENTER);
-		pontosBai.setMaximumSize(new Dimension(90, 14));
-		pontosBai.setFont(new Font("Brush Script MT", Font.BOLD, 14));
-		pontosBai.setForeground(Color.WHITE);
-		pontosBai.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforBaixoP.add(pontosBai);
+		inforBaixoP.setLayout(new BoxLayout(inforBaixoP, BoxLayout.LINE_AXIS));
 		
 		inforBaixo = new JLabel(new ImageIcon(part.participantes.get(0).getIcone()));
+		inforBaixo.setPreferredSize(new Dimension(100, 100));
 		inforBaixo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforBaixoP.add(inforBaixo);
 		inforBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 5));
-		inforBaixo.setMinimumSize(new Dimension(100, 60));
-		inforBaixo.setMaximumSize(new Dimension(100, 60));
+		inforBaixo.setMinimumSize(new Dimension(100, 100));
+		inforBaixo.setMaximumSize(new Dimension(100, 100));
+		
+		JPanel inforBaixoP2 = new JPanel();
+		inforBaixoP2.setBackground(new Color(139, 0, 0));
+		inforBaixoP2.setPreferredSize(new Dimension(100, 100));
+		inforBaixoP2.setMinimumSize(new Dimension(100, 100));
+		inforBaixoP2.setMaximumSize(new Dimension(100, 100));
+		inforBaixoP.add(inforBaixoP2);
+		
+		JLabel nomeBai = new JLabel(part.participantes.get(0).getNome());
+		inforBaixoP2.add(nomeBai);
+		nomeBai.setAlignmentX(Component.CENTER_ALIGNMENT);
+		nomeBai.setFont(new Font("Brush Script MT", Font.BOLD, 25));
+		nomeBai.setForeground(Color.WHITE);
+		
+		JLabel pontosBai = new JLabel("Pontos: " + part.pontuacao_jogadores[0]);
+		pontosBai.setPreferredSize(new Dimension(90, 30));
+		inforBaixoP2.add(pontosBai);
+		pontosBai.setHorizontalAlignment(SwingConstants.CENTER);
+		pontosBai.setMaximumSize(new Dimension(90, 14));
+		pontosBai.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		pontosBai.setForeground(Color.WHITE);
+		pontosBai.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		jogadorPecas = new JPanel();
 		jogadorPecas.setBackground(new Color(139, 0, 0));
 		jogadorPecas.setMinimumSize(new Dimension(100, 100));
-		jogadorPecas.setMaximumSize(new Dimension(494, 100));
+		jogadorPecas.setMaximumSize(new Dimension(396, 100));
 		jogadorPainel.add(jogadorPecas);
 		
 		JPanel blockBxoDir = new JPanel();
@@ -293,37 +320,40 @@ public class InterfaceJogo extends JFrame {
 		iaDireitaPecas = new JPanel();
 		iaDireitaPecas.setBackground(new Color(139, 0, 0));
 		iaDireitaPecas.setMinimumSize(new Dimension(100, 100));
-		iaDireitaPecas.setMaximumSize(new Dimension(100, 494));
+		iaDireitaPecas.setMaximumSize(new Dimension(100, 396));
 		iaRightPainel.add(iaDireitaPecas);
 		
 		JPanel inforDireitaP = new JPanel();
+		inforDireitaP.setPreferredSize(new Dimension(100, 100));
 		inforDireitaP.setMinimumSize(new Dimension(100, 100));
 		inforDireitaP.setMaximumSize(new Dimension(100, 100));
 		inforDireitaP.setBackground(new Color(139, 0, 0));
 		iaRightPainel.add(inforDireitaP);
-		inforDireitaP.setLayout(new BoxLayout(inforDireitaP, BoxLayout.PAGE_AXIS));
+		inforDireitaP.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JLabel nomeDir = new JLabel(part.participantes.get(3).getNome());
 		nomeDir.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforDireitaP.add(nomeDir);
 		nomeDir.setHorizontalAlignment(SwingConstants.RIGHT);
-		nomeDir.setFont(new Font("Brush Script MT", Font.BOLD, 17));
+		nomeDir.setFont(new Font("Brush Script MT", Font.BOLD, 25));
 		nomeDir.setForeground(Color.WHITE);
 		
 		JLabel pontosDir = new JLabel("Pontos: " + part.pontuacao_jogadores[3]);
+		pontosDir.setPreferredSize(new Dimension(90, 30));
 		pontosDir.setHorizontalAlignment(SwingConstants.CENTER);
 		pontosDir.setMaximumSize(new Dimension(90, 14));
-		pontosDir.setFont(new Font("Brush Script MT", Font.BOLD, 14));
+		pontosDir.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
 		pontosDir.setForeground(Color.WHITE);
 		pontosDir.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforDireitaP.add(pontosDir);
 		
 		inforDireita = new JLabel(new ImageIcon(part.participantes.get(3).getIcone()));
+		inforDireita.setPreferredSize(new Dimension(100, 100));
+		iaRightPainel.add(inforDireita);
 		inforDireita.setAlignmentX(Component.CENTER_ALIGNMENT);
-		inforDireitaP.add(inforDireita);
 		inforDireita.setBorder(new LineBorder(new Color(0, 0, 0), 5));
-		inforDireita.setMinimumSize(new Dimension(100, 60));
-		inforDireita.setMaximumSize(new Dimension(100, 60));
+		inforDireita.setMinimumSize(new Dimension(100, 100));
+		inforDireita.setMaximumSize(new Dimension(100, 100));
 		
 		tabuleiro = new JPanel();
 		tabuleiro.setSize(new Dimension(600, 600));
@@ -337,26 +367,30 @@ public class InterfaceJogo extends JFrame {
 		if(part.pontuacao_jogadores[0] >= 6){
 			JOptionPane.showMessageDialog(null, "Você venceu a rodada! Parabéns!", "Vencedor", JOptionPane.INFORMATION_MESSAGE);
 			Jogador jogador_logado = (Jogador) part.participantes.get(0);
+			jogador_logado.setTempo_rodadas(part.tempoPartida);			
+			dao.updatePontuacao(jogador_logado);
 			new InterfaceMenu(jogador_logado);
-			// aqui terá o método de atualizar o banco de dados para o ranking
 			return;
 		} else if(part.pontuacao_jogadores[1] >= 6) {
 			JOptionPane.showMessageDialog(null, part.participantes.get(1).getNome() + " venceu a rodada! Você perdeu.", "Perdedor", JOptionPane.INFORMATION_MESSAGE);
 			Jogador jogador_logado = (Jogador) part.participantes.get(0);
+			jogador_logado.setTempo_rodadas(part.tempoPartida);
+			dao.updatePontuacao(jogador_logado);
 			new InterfaceMenu(jogador_logado);
-			// aqui terá o método de atualizar o banco de dados para o ranking
 			return;
 		} else if(part.pontuacao_jogadores[2] >= 6) {
 			JOptionPane.showMessageDialog(null, part.participantes.get(2).getNome() + " venceu a rodada! Você perdeu.", "Perdedor", JOptionPane.INFORMATION_MESSAGE);
 			Jogador jogador_logado = (Jogador) part.participantes.get(0);
+			jogador_logado.setTempo_rodadas(part.tempoPartida);
+			dao.updatePontuacao(jogador_logado);
 			new InterfaceMenu(jogador_logado);
-			// aqui terá o método de atualizar o banco de dados para o ranking
 			return;
 		} else if(part.pontuacao_jogadores[3] >= 6) {
 			JOptionPane.showMessageDialog(null, part.participantes.get(3).getNome() + " venceu a rodada! Você perdeu.", "Perdedor", JOptionPane.INFORMATION_MESSAGE);			
 			Jogador jogador_logado = (Jogador) part.participantes.get(0);
+			jogador_logado.setTempo_rodadas(part.tempoPartida);
+			dao.updatePontuacao(jogador_logado);
 			new InterfaceMenu(jogador_logado);
-			// aqui terá o método de atualizar o banco de dados para o ranking
 			return;
 		}
 		
@@ -442,11 +476,11 @@ public class InterfaceJogo extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-	// método da primeira jogada de cada rodada
+	// mÃ©todo da primeira jogada de cada rodada
 	public void IniciaPartida(final Partida part) {
 		Participante primeiro;
 		if (part.id_lastWin == -1){
-			// verifica quem é o jogador da vez
+			// verifica quem Ã© o jogador da vez
 			primeiro = part.firstBegin();
 			if(part.jogadorDaVez == 0){ // jogador
 				
@@ -514,7 +548,7 @@ public class InterfaceJogo extends JFrame {
 						lab.setEnabled(false);
 					}
 				}
-			} else { // inteligência artificial
+			} else { // inteligÃªncia artificial
 				if (part.jogadorDaVez == 1){
 					inforEsquerda.setBorder(new LineBorder(new Color(0, 200, 0), 5));
 					inforBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 5));
@@ -622,7 +656,7 @@ public class InterfaceJogo extends JFrame {
 								jogadorPecas.updateUI();
 								repaint();
 
-								// tirando os listeners dos botões do mouse
+								// tirando os listeners dos botÃµes do mouse
 								Component[] c = jogadorPecas.getComponents();
 								for (Component j: c){
 									MouseListener[] m = j.getMouseListeners();
@@ -651,7 +685,7 @@ public class InterfaceJogo extends JFrame {
 					part.id_lastWin = part.checkNext(j);
 					contadorEmpate++;
 					
-					// tirando os listeners dos botões do mouse
+					// tirando os listeners dos botÃµes do mouse
 					Component[] compArray = jogadorPecas.getComponents();
 					for (Component comp: compArray){
 						MouseListener[] m = comp.getMouseListeners();
@@ -663,7 +697,7 @@ public class InterfaceJogo extends JFrame {
 					IniciaPartida(part);
 					return;
 				}
-			} else { // inteligência artificial
+			} else { // inteligÃªncia artificial
 				Peca p;
 				if (part.jogadorDaVez == 1){
 					inforEsquerda.setBorder(new LineBorder(new Color(0, 200, 0), 5));
@@ -777,6 +811,8 @@ public class InterfaceJogo extends JFrame {
 								jogadorPecas.remove(e.getComponent());
 								part.participantes.get(0).getPecas().remove(peca);
 								part.pecas_campo.add(peca);
+								part.setUltima_peca(peca);
+								int x = part.pontuacao();
 								
 								if (peca.getValor1() == peca.getValor2()){
 									if (peca.getValor1() == part.extremidade1){
@@ -836,7 +872,6 @@ public class InterfaceJogo extends JFrame {
 									}
 								}
 								
-								part.setUltima_peca(peca);
 								tabuleiro.updateUI();
 								jogadorPecas.updateUI();
 								repaint();
@@ -860,7 +895,6 @@ public class InterfaceJogo extends JFrame {
 										return;
 									}
 								} else {
-									int x = part.pontuacao();
 									String mensagem = "";
 									if (x == 1){
 										mensagem = vencedor.getNome() + " venceu a partida com uma batida simples!\n\n";
@@ -934,7 +968,7 @@ public class InterfaceJogo extends JFrame {
 					part.criarPartida();
 					new InterfaceJogo(part);
 					
-				} else {
+				} else {					
 					JOptionPane.showMessageDialog(jogadorPecas, part.participantes.get(part.jogadorDaVez).getNome() + " passou a vez!", "Passou a vez", JOptionPane.INFORMATION_MESSAGE);
 					if (part.isDificil()){
 						InteligenciaArtificial iaAnterior = (InteligenciaArtificial) part.participantes.get(3);
@@ -951,7 +985,7 @@ public class InterfaceJogo extends JFrame {
 					}
 				}
 			}
-		} else { // inteligência artificial fácil
+		} else { // inteligÃªncia artificial fÃ¡cil
 			Peca p;
 			if (part.jogadorDaVez == 1){
 				inforEsquerda.setBorder(new LineBorder(new Color(0, 200, 0), 5));
@@ -963,7 +997,7 @@ public class InterfaceJogo extends JFrame {
 				inforDireita.setBorder(new LineBorder(new Color(0, 200, 0), 5));
 				inforCima.setBorder(new LineBorder(new Color(0, 0, 0), 5));
 			}
-			// esse if verifica se tem peça que pode ser jogada
+			// esse if verifica se tem peÃ§a que pode ser jogada
 			if (part.participantes.get(part.jogadorDaVez).VerificarJogadaPossivel(part.extremidade1, part.extremidade2)){
 				JOptionPane.showMessageDialog(jogadorPecas, part.participantes.get(part.jogadorDaVez).getNome() + " tem a vez!", "Partida em andamento", JOptionPane.INFORMATION_MESSAGE);							
 				contadorEmpate = 0;
@@ -983,10 +1017,12 @@ public class InterfaceJogo extends JFrame {
 							iaDireitaPecas.remove(i);
 						}
 
+						part.setUltima_peca(p);
+						int x = part.pontuacao();
 						p.virada = true;
+						
 						if (p.getValor1() == part.extremidade1){
 							p.calcularPosicaoPeca(tabuleiro, part.ext1Peca, part.primeiraPecaJogada, 1, 1);
-							//p.calcularPosicaoPeca(tabuleiro, part.ext1Peca, part.primeiraPecaJogada, 1, 1);
 							part.extremidade1 = p.getValor2();
 							part.ext1Peca = p;
 						} else if (p.getValor2() == part.extremidade1){
@@ -1003,7 +1039,6 @@ public class InterfaceJogo extends JFrame {
 							part.ext2Peca = p;
 						}
 
-						part.setUltima_peca(p);
 						tabuleiro.updateUI();
 						repaint();
 						
@@ -1013,7 +1048,6 @@ public class InterfaceJogo extends JFrame {
 							JogadasSeguintes(part);
 							return;
 						} else {
-							int x = part.pontuacao();
 							String mensagem = "";
 							if (x == 1){
 								mensagem = vencedor.getNome() + " venceu a partida com uma batida simples!\n\n";
@@ -1094,11 +1128,11 @@ public class InterfaceJogo extends JFrame {
 		}
 	}
 	
-	// IA difícil
+	// IA difÃ­cil
 	public void JogadasSeguintesDificil(final Partida part){
 		Peca p;
 		Peca aux;
-		// esse if verifica se tem peça que pode ser jogada
+		// esse if verifica se tem peÃ§a que pode ser jogada
 		if (part.participantes.get(part.jogadorDaVez).VerificarJogadaPossivel(part.extremidade1, part.extremidade2)){
 			if (part.jogadorDaVez == 1){
 				inforEsquerda.setBorder(new LineBorder(new Color(0, 200, 0), 5));
@@ -1135,7 +1169,10 @@ public class InterfaceJogo extends JFrame {
 				}
 			}
 
+			part.setUltima_peca(p);
+			int x = part.pontuacao();
 			p.virada = true;
+			
 			if (p.getValor1() == part.extremidade1){
 				p.calcularPosicaoPeca(tabuleiro, part.ext1Peca, part.primeiraPecaJogada, 1, 1);
 				part.extremidade1 = p.getValor2();
@@ -1154,7 +1191,6 @@ public class InterfaceJogo extends JFrame {
 				part.ext2Peca = p;
 			}
 
-			part.setUltima_peca(p);
 			tabuleiro.updateUI();
 			repaint();
 			
@@ -1169,7 +1205,6 @@ public class InterfaceJogo extends JFrame {
 					return;
 				}
 			} else {
-				int x = part.pontuacao();
 				String mensagem = "";
 				if (x == 1){
 					mensagem = vencedor.getNome() + " venceu a partida com uma batida simples!\n\n";
@@ -1238,6 +1273,17 @@ public class InterfaceJogo extends JFrame {
 				new InterfaceJogo(part);
 				
 			} else {
+				if (part.jogadorDaVez == 1){
+					inforEsquerda.setBorder(new LineBorder(new Color(0, 200, 0), 5));
+					inforBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 5));
+				} else if (part.jogadorDaVez == 2){
+					inforCima.setBorder(new LineBorder(new Color(0, 200, 0), 5));
+					inforEsquerda.setBorder(new LineBorder(new Color(0, 0, 0), 5));
+				} else if (part.jogadorDaVez == 3){
+					inforDireita.setBorder(new LineBorder(new Color(0, 200, 0), 5));
+					inforCima.setBorder(new LineBorder(new Color(0, 0, 0), 5));
+				}
+				
 				JOptionPane.showMessageDialog(jogadorPecas, part.participantes.get(part.jogadorDaVez).getNome() + " passou a vez!", "Passou a vez", JOptionPane.INFORMATION_MESSAGE);
 				if (part.jogadorDaVez > 1){
 					InteligenciaArtificial iaAnterior = (InteligenciaArtificial) part.participantes.get(part.jogadorDaVez - 1);
