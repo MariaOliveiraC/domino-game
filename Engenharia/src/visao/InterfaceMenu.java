@@ -1,31 +1,40 @@
 package visao;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
-import java.awt.Color;
-import java.awt.Font;
-
-import javax.swing.JButton;
-
-import modelo.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.Cursor;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import controle.DAO;
+import controle.Som;
+import modelo.InteligenciaArtificial;
+import modelo.Jogador;
+import modelo.Participante;
+import modelo.Partida;
 
 public class InterfaceMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
-	JPanel opcoes;
-	JButton botaoNovaPartida, botaoContinuarPartida, botaoRanking, jogoFacil, jogoDificil;
+	private DAO dao;
+	Som som = new Som();
+	JPanel opcoes, sobre;
+	JButton botaoNovaPartida, botaoContinuarPartida, botaoRanking, botaoSobre, jogoFacil, jogoDificil, botaoHelp;
+	JLabel sobreLabel1, sobreLabel2, sobreLabel3, sobreLabel4, sobreLabel5, sobreLabel6, sobreLabel7, bemVindo, icone;
+	JButton botaoVoltar;
 
 	public InterfaceMenu(final Jogador jogador_logado) {
+		dao = new DAO();
 		getContentPane().setBackground(new Color(139, 0, 0));
 		getContentPane().setLayout(null);
 		
@@ -33,7 +42,7 @@ public class InterfaceMenu extends JFrame {
 		labelDomino.setForeground(Color.WHITE);
 		labelDomino.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDomino.setFont(new Font("Brush Script MT", Font.PLAIN, 180));
-		labelDomino.setBounds(36, 11, 527, 202);
+		labelDomino.setBounds(20, 20, 571, 153);
 		getContentPane().add(labelDomino);
 		
 		botaoNovaPartida = new JButton();
@@ -46,10 +55,15 @@ public class InterfaceMenu extends JFrame {
 		botaoNovaPartida.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-disabled.png"));
 		botaoNovaPartida.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoNovaPartida.setBorder(null);
-		botaoNovaPartida.setBounds(20, 251, 240, 70);
+		botaoNovaPartida.setBounds(20, 210, 240, 70);
 		getContentPane().add(botaoNovaPartida);
 		
 		botaoContinuarPartida = new JButton();
+		if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+			botaoContinuarPartida.setEnabled(true);
+		} else {
+			botaoContinuarPartida.setEnabled(false);
+		}
 		botaoContinuarPartida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoContinuarPartida.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-pressed.png"));
 		botaoContinuarPartida.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-rollover.png"));
@@ -59,7 +73,7 @@ public class InterfaceMenu extends JFrame {
 		botaoContinuarPartida.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-disabled.png"));
 		botaoContinuarPartida.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoContinuarPartida.setBorder(null);
-		botaoContinuarPartida.setBounds(20, 332, 240, 70);
+		botaoContinuarPartida.setBounds(20, 281, 240, 70);
 		getContentPane().add(botaoContinuarPartida);
 		
 		botaoRanking = new JButton();
@@ -72,7 +86,7 @@ public class InterfaceMenu extends JFrame {
 		botaoRanking.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-disabled.png"));
 		botaoRanking.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoRanking.setBorder(null);
-		botaoRanking.setBounds(20, 413, 240, 70);
+		botaoRanking.setBounds(20, 352, 240, 70);
 		getContentPane().add(botaoRanking);
 		
 		JButton botaoLogout = new JButton();
@@ -88,21 +102,34 @@ public class InterfaceMenu extends JFrame {
 		botaoLogout.setBounds(20, 494, 240, 70);
 		getContentPane().add(botaoLogout);
 		
+		botaoSobre = new JButton();
+		botaoSobre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botaoSobre.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-pressed.png"));
+		botaoSobre.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-rollover.png"));
+		botaoSobre.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-rollover.png"));
+		botaoSobre.setIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-normal.png"));
+		botaoSobre.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-disabled.png"));
+		botaoSobre.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-disabled.png"));
+		botaoSobre.setHorizontalTextPosition(SwingConstants.CENTER);
+		botaoSobre.setBorder(null);
+		botaoSobre.setBounds(20, 423, 240, 70);
+		getContentPane().add(botaoSobre);
+		
 		JLabel imagemLabel = new JLabel();
-		imagemLabel.setBounds(521, 11, 263, 227);
+		imagemLabel.setBounds(485, 11, 263, 227);
 		imagemLabel.setIcon(new ImageIcon(".\\image\\peca\\pecasMenu.png"));
 		getContentPane().add(imagemLabel);
 		
-		JLabel bemVindo = new JLabel("Bem vindo, "+ jogador_logado.getNome() +"! ");
+		bemVindo = new JLabel("Bem vindo, "+ jogador_logado.getNome() +"! ");
 		bemVindo.setHorizontalAlignment(SwingConstants.RIGHT);
 		bemVindo.setForeground(Color.WHITE);
 		bemVindo.setFont(new Font("Brush Script MT", Font.PLAIN, 38));
-		bemVindo.setBounds(270, 251, 386, 70);
+		bemVindo.setBounds(398, 200, 386, 70);
 		getContentPane().add(bemVindo);
 		
 		opcoes = new JPanel();
 		opcoes.setBackground(new Color(139, 0, 0));
-		opcoes.setBounds(270, 405, 514, 139);
+		opcoes.setBounds(270, 372, 514, 139);
 		opcoes.setLayout(null);
 		opcoes.setVisible(false);
 		getContentPane().add(opcoes);
@@ -146,117 +173,310 @@ public class InterfaceMenu extends JFrame {
 		jogoDificil.setBounds(264, 11, 240, 70);
 		opcoes.add(jogoDificil);
 
-		JLabel icone = new JLabel(new ImageIcon(jogador_logado.getIcone()));
+		icone = new JLabel(new ImageIcon(jogador_logado.getIcone()));
 		icone.setBorder(new LineBorder(new Color(0, 0, 0)));
-		icone.setBounds(666, 249, 100, 100);
+		icone.setBounds(669, 261, 100, 100);
 		getContentPane().add(icone);
+		
+		botaoHelp = new JButton();
+		botaoHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botaoHelp.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-disabled.png"));
+		botaoHelp.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-rollover.png"));
+		botaoHelp.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-help-rollover.png"));
+		botaoHelp.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-pressed.png"));
+		botaoHelp.setIcon(new ImageIcon(".\\image\\graphics\\BtP-help-normal.png"));
+		botaoHelp.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-help-disabled.png"));
+		botaoHelp.setHorizontalTextPosition(SwingConstants.CENTER);
+		botaoHelp.setBorder(null);
+		botaoHelp.setBounds(739, 519, 45, 45);
+		getContentPane().add(botaoHelp);
+		
+		sobre = new JPanel();
+		sobre.setVisible(false);
+		sobre.setBackground(new Color(139, 0, 0));
+		sobre.setBounds(326, 232, 389, 332);
+		getContentPane().add(sobre);
+		sobre.setLayout(null);
+		
+		sobreLabel1 = new JLabel(" Engenharia de Software ");
+		sobreLabel1.setBounds(21, 5, 346, 44);
+		sobreLabel1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		sobreLabel1.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel1.setForeground(Color.WHITE);
+		sobreLabel1.setFont(new Font("Brush Script MT", Font.BOLD, 35));
+		sobre.add(sobreLabel1);
+		
+		sobreLabel2 = new JLabel("Equipe:                          ");
+		sobreLabel2.setBounds(86, 54, 217, 29);
+		sobreLabel2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		sobreLabel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel2.setForeground(Color.WHITE);
+		sobreLabel2.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		sobre.add(sobreLabel2);
+		
+		sobreLabel3 = new JLabel(" Adriano Araújo Felisberto ");
+		sobreLabel3.setBounds(90, 88, 209, 29);
+		sobreLabel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel3.setForeground(Color.WHITE);
+		sobreLabel3.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		sobre.add(sobreLabel3);
+		
+		sobreLabel4 = new JLabel(" Eleonilia Monteiro Rodrigues ");
+		sobreLabel4.setBounds(79, 122, 231, 29);
+		sobreLabel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel4.setForeground(Color.WHITE);
+		sobreLabel4.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		sobre.add(sobreLabel4);
+		
+		sobreLabel5 = new JLabel(" Maria José Oliveira Costa ");
+		sobreLabel5.setBounds(89, 156, 210, 29);
+		sobreLabel5.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel5.setForeground(Color.WHITE);
+		sobreLabel5.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		sobre.add(sobreLabel5);
+		
+		sobreLabel6 = new JLabel(" Wendell Gomes Silva ");
+		sobreLabel6.setBounds(109, 190, 170, 29);
+		sobreLabel6.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel6.setForeground(Color.WHITE);
+		sobreLabel6.setFont(new Font("Brush Script MT", Font.PLAIN, 23));
+		sobre.add(sobreLabel6);
+		
+		sobreLabel7 = new JLabel("  Desenvolvido em 2017  ");
+		sobreLabel7.setBounds(52, 224, 285, 44);
+		sobreLabel7.setHorizontalAlignment(SwingConstants.RIGHT);
+		sobreLabel7.setForeground(Color.WHITE);
+		sobreLabel7.setFont(new Font("Brush Script MT", Font.PLAIN, 35));
+		sobreLabel7.setAlignmentX(0.5f);
+		sobre.add(sobreLabel7);
+		
+		botaoVoltar = new JButton();
+		botaoVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botaoVoltar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
+		botaoVoltar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
+		botaoVoltar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
+		botaoVoltar.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-pressed.png"));
+		botaoVoltar.setIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-normal.png"));
+		botaoVoltar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
+		botaoVoltar.setHorizontalTextPosition(SwingConstants.CENTER);
+		botaoVoltar.setBorder(null);
+		botaoVoltar.setBounds(161, 259, 90, 90);
+		sobre.add(botaoVoltar);
 		
 		// actions listeners
 		botaoNovaPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
 				opcoes.setVisible(true);
 				botaoContinuarPartida.setEnabled(false);
 				botaoNovaPartida.setEnabled(false);
 				botaoRanking.setEnabled(false);
+				botaoSobre.setEnabled(false);
+				botaoHelp.setEnabled(false);
+			}
+		});
+		
+		botaoContinuarPartida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
+				dispose();
+				new InterfaceJogo(dao.resgatarPartida(jogador_logado.getId()), true);
+				return;
 			}
 		});
 		
 		botaoRanking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
 				dispose();
 				new InterfaceRanking(jogador_logado);
+			}
+		});
+
+		botaoSobre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
+				sobre.setVisible(true);
+				botaoContinuarPartida.setEnabled(false);
+				botaoNovaPartida.setEnabled(false);
+				botaoRanking.setEnabled(false);
+				botaoSobre.setEnabled(false);
+				botaoHelp.setEnabled(false);
+				bemVindo.setVisible(false);
+				icone.setVisible(false);
+			}
+		});
+		
+		botaoVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
+				sobre.setVisible(false);
+				if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+					botaoContinuarPartida.setEnabled(true);
+				} else {
+					botaoContinuarPartida.setEnabled(false);
+				}
+				botaoNovaPartida.setEnabled(true);
+				botaoRanking.setEnabled(true);
+				botaoSobre.setEnabled(true);
+				botaoHelp.setEnabled(true);
+				bemVindo.setVisible(true);
+				icone.setVisible(true);
 			}
 		});
 		
 		// nova partida facil
 		jogoFacil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				ArrayList<Participante> participantes = new ArrayList<Participante>();
-				participantes.add(jogador_logado);
-				
-				Participante IA1;
-				if (jogador_logado.getIcone().contains("Pernalonga")){
-					IA1 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+				som.somClick();
+				boolean flag = false;
+				if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+					Object[] options = { "SIM", "NÃO" };
+					int opcao = JOptionPane.showOptionDialog(null, "Já possui jogo salvo, deseja continuar?", "Aviso",
+							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+							null, options, options[0]);	
+					
+					if (opcao == 0) {
+						flag = true;
+						dao.deletarPartida(jogador_logado.getId());
+					} else {
+						opcoes.setVisible(false);
+						if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+							botaoContinuarPartida.setEnabled(true);
+						} else {
+							botaoContinuarPartida.setEnabled(false);
+						}
+						botaoNovaPartida.setEnabled(true);
+						botaoRanking.setEnabled(true);
+						botaoSobre.setEnabled(true);
+						botaoHelp.setEnabled(true);
+					}
 				} else {
-					IA1 = new InteligenciaArtificial("Pernalonga", ".\\image\\icon\\Pernalonga.png", false);
+					flag = true;
 				}
-				participantes.add(IA1);
-				
-				Participante IA2;
-				if (jogador_logado.getIcone().contains("Lola")){
-					IA2 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
-				} else {
-					IA2 = new InteligenciaArtificial("Lola", ".\\image\\icon\\Lola.png", false);
+				if (flag) {
+					ArrayList<Participante> participantes = new ArrayList<Participante>();
+					participantes.add(jogador_logado);
+					
+					Participante IA1;
+					if (jogador_logado.getIcone().contains("Pernalonga")){
+						IA1 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+					} else {
+						IA1 = new InteligenciaArtificial("Pernalonga", ".\\image\\icon\\Pernalonga.png", false);
+					}
+					participantes.add(IA1);
+					
+					Participante IA2;
+					if (jogador_logado.getIcone().contains("Lola")){
+						IA2 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+					} else {
+						IA2 = new InteligenciaArtificial("Lola", ".\\image\\icon\\Lola.png", false);
+					}
+					participantes.add(IA2);
+					
+					Participante IA3;
+					if (jogador_logado.getIcone().contains("Patolino")){
+						IA3 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+					} else {
+						IA3 = new InteligenciaArtificial("Patolino", ".\\image\\icon\\Patolino.png", false);
+					}
+					participantes.add(IA3);
+					
+					Partida part = new Partida(participantes, false);
+					part.criarPartida();
+					
+					dispose();
+					new InterfaceJogo(part, false);
 				}
-				participantes.add(IA2);
-				
-				Participante IA3;
-				if (jogador_logado.getIcone().contains("Patolino")){
-					IA3 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
-				} else {
-					IA3 = new InteligenciaArtificial("Patolino", ".\\image\\icon\\Patolino.png", false);
-				}
-				participantes.add(IA3);
-				
-				Partida part = new Partida(participantes, false);
-				part.criarPartida();
-				
-				dispose();
-				new InterfaceJogo(part);
+
 			}
 		});
 		
 		// nova partida difícil
 		jogoDificil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				ArrayList<Participante> participantes = new ArrayList<Participante>();
-				participantes.add(jogador_logado);
-				
-				Participante IA1;
-				if (jogador_logado.getIcone().contains("Taz")){
-					IA1 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+				som.somClick();
+				boolean flag = false;
+				if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+					Object[] options = { "SIM", "NÃO" };
+					int opcao = JOptionPane.showOptionDialog(null, "Já possui jogo salvo, deseja continuar?", "Aviso",
+							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+							null, options, options[0]);	
+					
+					if (opcao == 0) {
+						flag = true;
+						dao.deletarPartida(jogador_logado.getId());
+					} else {
+						opcoes.setVisible(false);
+						if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+							botaoContinuarPartida.setEnabled(true);
+						} else {
+							botaoContinuarPartida.setEnabled(false);
+						}
+						botaoNovaPartida.setEnabled(true);
+						botaoRanking.setEnabled(true);
+						botaoSobre.setEnabled(true);
+						botaoHelp.setEnabled(true);
+					}
 				} else {
-					IA1 = new InteligenciaArtificial("Taz", ".\\image\\icon\\Taz.png", true);
+					flag = true;
 				}
-				participantes.add(IA1);
-				
-				Participante IA2;
-				if (jogador_logado.getIcone().contains("Eufrazino")){
-					IA2 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
-				} else {
-					IA2 = new InteligenciaArtificial("Eufrazino", ".\\image\\icon\\Eufrazino.png", true);
+				if (flag) {
+					ArrayList<Participante> participantes = new ArrayList<Participante>();
+					participantes.add(jogador_logado);
+					
+					Participante IA1;
+					if (jogador_logado.getIcone().contains("Taz")){
+						IA1 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+					} else {
+						IA1 = new InteligenciaArtificial("Taz", ".\\image\\icon\\Taz.png", true);
+					}
+					participantes.add(IA1);
+					
+					Participante IA2;
+					if (jogador_logado.getIcone().contains("Eufrazino")){
+						IA2 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+					} else {
+						IA2 = new InteligenciaArtificial("Eufrazino", ".\\image\\icon\\Eufrazino.png", true);
+					}
+					participantes.add(IA2);
+					
+					Participante IA3;
+					if (jogador_logado.getIcone().contains("Marvin")){
+						IA3 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+					} else {
+						IA3 = new InteligenciaArtificial("Marvin", ".\\image\\icon\\Marvin.png", true);
+					}
+					participantes.add(IA3);
+					
+					Partida part = new Partida(participantes, true);
+					part.criarPartida();
+					
+					dispose();
+					new InterfaceJogo(part, false);
 				}
-				participantes.add(IA2);
-				
-				Participante IA3;
-				if (jogador_logado.getIcone().contains("Marvin")){
-					IA3 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
-				} else {
-					IA3 = new InteligenciaArtificial("Marvin", ".\\image\\icon\\Marvin.png", true);
-				}
-				participantes.add(IA3);
-				
-				Partida part = new Partida(participantes, true);
-				part.criarPartida();
-				
-				dispose();
-				new InterfaceJogo(part);
 			}
 		});
 		
 		botaoCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
 				opcoes.setVisible(false);
-				botaoContinuarPartida.setEnabled(true);
+				if (dao.PossuiJogoSalvo(jogador_logado.getId())) {
+					botaoContinuarPartida.setEnabled(true);
+				} else {
+					botaoContinuarPartida.setEnabled(false);
+				}
 				botaoNovaPartida.setEnabled(true);
 				botaoRanking.setEnabled(true);
+				botaoSobre.setEnabled(true);
+				botaoHelp.setEnabled(true);
 			}
 		});
 		
 		botaoLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				som.somClick();
 				dispose();
 				new InterfaceInicial();
 			}

@@ -1,8 +1,11 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Participante {
+public class Participante implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String nome;
 	private int pontuacao;
@@ -32,6 +35,16 @@ public class Participante {
 			}
 		}
 		return false;
+	}
+	
+	public int quantidadeCarrocao() {
+		int quantia = 0;
+		for (Peca peca : pecas) {
+			if(peca.getValor1() == peca.getValor2()){
+				quantia++;
+			}
+		}
+		return quantia;
 	}
 
 	public boolean noHasPeca() {
@@ -67,6 +80,9 @@ public class Participante {
 	}
 	public void setPartidas_vencidas(int partidas_vencidas) {
 		this.partidas_vencidas += partidas_vencidas;
+	}
+	public void setPartidasVencidasNula(){
+		this.partidas_vencidas = 0;
 	}
 	public int getTempo_rodadas() {
 		return tempo_rodadas;
