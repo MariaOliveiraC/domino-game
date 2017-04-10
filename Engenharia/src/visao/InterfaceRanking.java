@@ -30,7 +30,6 @@ import javax.swing.border.LineBorder;
 public class InterfaceRanking extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	Som som = new Som();
 	DAO dao = new DAO();
 	JPanel inforTopOne, inforTopTwo, inforTopThree, inforTopFour, inforTopFive;
 
@@ -328,7 +327,7 @@ public class InterfaceRanking extends JFrame {
 		quinto.setBounds(10, 479, 54, 85);
 		inforRanking.add(quinto);
 		
-		if(listaJogadores.get(0).getPontuacao() == 0){
+		if(listaJogadores.get(0).getPontuacao() == 0 && listaJogadores.get(0).getTempo_rodadas() == 0){
 			icon1.setVisible(false);
 			vitorias1.setText("Vitórias: ");
 			ponto1.setText("Pontuação: ");
@@ -336,7 +335,7 @@ public class InterfaceRanking extends JFrame {
 			data1.setText("Data: ");
 			name1.setVisible(false);
 		}
-		if(listaJogadores.get(1).getPontuacao() == 0){
+		if(listaJogadores.get(1).getPontuacao() == 0 && listaJogadores.get(1).getTempo_rodadas() == 0){
 			icon2.setVisible(false);
 			vitorias2.setText("Vitórias: ");
 			ponto2.setText("Pontuação: ");
@@ -344,7 +343,7 @@ public class InterfaceRanking extends JFrame {
 			data2.setText("Data: ");
 			name2.setVisible(false);
 		}
-		if(listaJogadores.get(2).getPontuacao() == 0){
+		if(listaJogadores.get(2).getPontuacao() == 0 && listaJogadores.get(2).getTempo_rodadas() == 0){
 			icon3.setVisible(false);
 			vitorias3.setText("Vitórias: ");
 			ponto3.setText("Pontuação: ");
@@ -352,7 +351,7 @@ public class InterfaceRanking extends JFrame {
 			data3.setText("Data: ");
 			name3.setVisible(false);
 		}
-		if(listaJogadores.get(3).getPontuacao() == 0){
+		if(listaJogadores.get(3).getPontuacao() == 0 && listaJogadores.get(3).getTempo_rodadas() == 0){
 			icon4.setVisible(false);
 			vitorias4.setText("Vitórias: ");
 			ponto4.setText("Pontuação: ");
@@ -360,7 +359,7 @@ public class InterfaceRanking extends JFrame {
 			data4.setText("Data: ");
 			name4.setVisible(false);
 		}
-		if(listaJogadores.get(4).getPontuacao() == 0){
+		if(listaJogadores.get(4).getPontuacao() == 0 && listaJogadores.get(4).getTempo_rodadas() == 0){
 			icon5.setVisible(false);
 			vitorias5.setText("Vitórias: ");
 			ponto5.setText("Pontuação: ");
@@ -421,7 +420,7 @@ public class InterfaceRanking extends JFrame {
 		// actions listeners
 		voltarBt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				som.somClick();
+				Som.somClick();
 				new InterfaceMenu(jogador_logado);
 				dispose();		
 			}
@@ -429,13 +428,13 @@ public class InterfaceRanking extends JFrame {
 		
 		pdfBt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				som.somClick();
+				Som.somClick();
 			}
 		});
 
 		resetarBt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				som.somClick();
+				Som.somClick();
 				Object[] options = { "Sim", "Não" };
 				int i = JOptionPane.showOptionDialog(null, "Tem certeza que deseja resetar o ranking?", "Resetar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 				if (i == 0){
