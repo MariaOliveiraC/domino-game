@@ -2,6 +2,7 @@ package modelo;
 
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.Serializable;
 
 import javax.swing.ImageIcon;
@@ -29,7 +30,7 @@ public class Peca implements Serializable {
 		this.valor1 = valor1;
 		this.valor2 = valor2;
 		this.virada = virada;
-		imagem = new ImageIcon(".\\image\\peca\\peca" + valor1 + valor2 + ".png");
+		imagem = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/peca" + valor1 + valor2 + ".png")));
 	}
 
 	// rotacao
@@ -69,7 +70,7 @@ public class Peca implements Serializable {
 				l.setBounds(this.posicaoX, this.posicaoY, this.altura, this.largura);
 			}
 		} else {
-			ImageIcon desvirada = new ImageIcon(".\\image\\peca\\pecaOff.png");
+			ImageIcon desvirada = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/pecaOff.png")));
 			if (rotacao == 0){
 				l.setIcon(desvirada);
 				l.setBounds(this.posicaoX, this.posicaoY, this.largura, this.altura);

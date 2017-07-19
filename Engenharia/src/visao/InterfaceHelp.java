@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -29,19 +30,19 @@ public class InterfaceHelp extends JFrame {
 		getContentPane().setBackground(new Color(139, 0, 0));
 		
 		help = new JLabel();
-		help.setIcon(new ImageIcon(".\\image\\graphics\\help1.png"));
+		help.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/help1.png"))));
 		help.setHorizontalAlignment(SwingConstants.CENTER);
 		help.setBounds(10, 115, 774, 449);
 		getContentPane().add(help);
 		
 		JButton voltarBt = new JButton();
 		voltarBt.setBounds(34, 11, 90, 90);
-		voltarBt.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
-		voltarBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		voltarBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		voltarBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-pressed.png"));
-		voltarBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-normal.png"));
-		voltarBt.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
+		voltarBt.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
+		voltarBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		voltarBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		voltarBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-pressed.png"))));
+		voltarBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-normal.png"))));
+		voltarBt.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
 		voltarBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		voltarBt.setBorder(null);
 		voltarBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -59,12 +60,12 @@ public class InterfaceHelp extends JFrame {
 		
 		leftBt = new JButton();
 		leftBt.setEnabled(false);
-		leftBt.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-left-disabled.png"));
-		leftBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-left-rollover.png"));
-		leftBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-left-rollover.png"));
-		leftBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-left-pressed.png"));
-		leftBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-left-normal.png"));
-		leftBt.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-left-disabled.png"));
+		leftBt.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-disabled.png"))));
+		leftBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-rollover.png"))));
+		leftBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-rollover.png"))));
+		leftBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-pressed.png"))));
+		leftBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-normal.png"))));
+		leftBt.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-left-disabled.png"))));
 		leftBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		leftBt.setBorder(null);
 		leftBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -75,12 +76,12 @@ public class InterfaceHelp extends JFrame {
 		getContentPane().add(leftBt);
 		
 		rightBt = new JButton();
-		rightBt.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-right-disabled.png"));
-		rightBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-right-rollover.png"));
-		rightBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-right-rollover.png"));
-		rightBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-right-pressed.png"));
-		rightBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-right-normal.png"));
-		rightBt.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-right-disabled.png"));
+		rightBt.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-disabled.png"))));
+		rightBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-rollover.png"))));
+		rightBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-rollover.png"))));
+		rightBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-pressed.png"))));
+		rightBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-normal.png"))));
+		rightBt.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-right-disabled.png"))));
 		rightBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		rightBt.setBorder(null);
 		rightBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -105,7 +106,7 @@ public class InterfaceHelp extends JFrame {
 				if (escolha > 1){
 					escolha--;
 					rightBt.setEnabled(true);
-					help.setIcon(new ImageIcon(".\\image\\graphics\\help" + escolha + ".png"));
+					help.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/help" + escolha + ".png"))));
 					if (escolha == 1){
 						leftBt.setEnabled(false);
 					} else {
@@ -121,7 +122,7 @@ public class InterfaceHelp extends JFrame {
 				if (escolha < 4){
 					escolha++;
 					leftBt.setEnabled(true);
-					help.setIcon(new ImageIcon(".\\image\\graphics\\help" + escolha + ".png"));
+					help.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/help" + escolha + ".png"))));
 					if (escolha == 3){
 						rightBt.setEnabled(false);
 					} else {

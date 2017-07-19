@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -47,12 +48,12 @@ public class InterfaceMenu extends JFrame {
 		
 		botaoNovaPartida = new JButton();
 		botaoNovaPartida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoNovaPartida.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-pressed.png"));
-		botaoNovaPartida.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-rollover.png"));
-		botaoNovaPartida.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-rollover.png"));
-		botaoNovaPartida.setIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-normal.png"));
-		botaoNovaPartida.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-disabled.png"));
-		botaoNovaPartida.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-novojogo-disabled.png"));
+		botaoNovaPartida.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-pressed.png"))));
+		botaoNovaPartida.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-rollover.png"))));
+		botaoNovaPartida.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-rollover.png"))));
+		botaoNovaPartida.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-normal.png"))));
+		botaoNovaPartida.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-disabled.png"))));
+		botaoNovaPartida.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-novojogo-disabled.png"))));
 		botaoNovaPartida.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoNovaPartida.setBorder(null);
 		botaoNovaPartida.setBounds(20, 210, 240, 70);
@@ -65,12 +66,12 @@ public class InterfaceMenu extends JFrame {
 			botaoContinuarPartida.setEnabled(false);
 		}
 		botaoContinuarPartida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoContinuarPartida.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-pressed.png"));
-		botaoContinuarPartida.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-rollover.png"));
-		botaoContinuarPartida.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-rollover.png"));
-		botaoContinuarPartida.setIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-normal.png"));
-		botaoContinuarPartida.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-disabled.png"));
-		botaoContinuarPartida.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-continuar-disabled.png"));
+		botaoContinuarPartida.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-pressed.png"))));
+		botaoContinuarPartida.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-rollover.png"))));
+		botaoContinuarPartida.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-rollover.png"))));
+		botaoContinuarPartida.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-normal.png"))));
+		botaoContinuarPartida.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-disabled.png"))));
+		botaoContinuarPartida.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-continuar-disabled.png"))));
 		botaoContinuarPartida.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoContinuarPartida.setBorder(null);
 		botaoContinuarPartida.setBounds(20, 281, 240, 70);
@@ -78,12 +79,12 @@ public class InterfaceMenu extends JFrame {
 		
 		botaoRanking = new JButton();
 		botaoRanking.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoRanking.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-pressed.png"));
-		botaoRanking.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-rollover.png"));
-		botaoRanking.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-rollover.png"));
-		botaoRanking.setIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-normal.png"));
-		botaoRanking.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-disabled.png"));
-		botaoRanking.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-ranking-disabled.png"));
+		botaoRanking.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-pressed.png"))));
+		botaoRanking.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-rollover.png"))));
+		botaoRanking.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-rollover.png"))));
+		botaoRanking.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-normal.png"))));
+		botaoRanking.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-disabled.png"))));
+		botaoRanking.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-ranking-disabled.png"))));
 		botaoRanking.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoRanking.setBorder(null);
 		botaoRanking.setBounds(20, 352, 240, 70);
@@ -91,12 +92,12 @@ public class InterfaceMenu extends JFrame {
 		
 		JButton botaoLogout = new JButton();
 		botaoLogout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoLogout.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-pressed.png"));
-		botaoLogout.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-rollover.png"));
-		botaoLogout.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-rollover.png"));
-		botaoLogout.setIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-normal.png"));
-		botaoLogout.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-disabled.png"));
-		botaoLogout.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-logout-disabled.png"));
+		botaoLogout.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-pressed.png"))));
+		botaoLogout.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-rollover.png"))));
+		botaoLogout.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-rollover.png"))));
+		botaoLogout.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-normal.png"))));
+		botaoLogout.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-disabled.png"))));
+		botaoLogout.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-logout-disabled.png"))));
 		botaoLogout.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoLogout.setBorder(null);
 		botaoLogout.setBounds(20, 494, 240, 70);
@@ -104,12 +105,12 @@ public class InterfaceMenu extends JFrame {
 		
 		botaoSobre = new JButton();
 		botaoSobre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoSobre.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-pressed.png"));
-		botaoSobre.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-rollover.png"));
-		botaoSobre.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-rollover.png"));
-		botaoSobre.setIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-normal.png"));
-		botaoSobre.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-disabled.png"));
-		botaoSobre.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtG-sobre-disabled.png"));
+		botaoSobre.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-pressed.png"))));
+		botaoSobre.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-rollover.png"))));
+		botaoSobre.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-rollover.png"))));
+		botaoSobre.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-normal.png"))));
+		botaoSobre.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-disabled.png"))));
+		botaoSobre.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtG-sobre-disabled.png"))));
 		botaoSobre.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoSobre.setBorder(null);
 		botaoSobre.setBounds(20, 423, 240, 70);
@@ -117,7 +118,7 @@ public class InterfaceMenu extends JFrame {
 		
 		JLabel imagemLabel = new JLabel();
 		imagemLabel.setBounds(485, 11, 263, 227);
-		imagemLabel.setIcon(new ImageIcon(".\\image\\peca\\pecasMenu.png"));
+		imagemLabel.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/pecasMenu.png"))));
 		getContentPane().add(imagemLabel);
 		
 		bemVindo = new JLabel("Bem vindo, "+ jogador_logado.getNome() +"! ");
@@ -136,12 +137,12 @@ public class InterfaceMenu extends JFrame {
 		
 		JButton botaoCancelar = new JButton();
 		botaoCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoCancelar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-disabled.png"));
-		botaoCancelar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
-		botaoCancelar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
-		botaoCancelar.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-pressed.png"));
-		botaoCancelar.setIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-normal.png"));
-		botaoCancelar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-disabled.png"));
+		botaoCancelar.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-disabled.png"))));
+		botaoCancelar.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-rollover.png"))));
+		botaoCancelar.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-rollover.png"))));
+		botaoCancelar.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-pressed.png"))));
+		botaoCancelar.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-normal.png"))));
+		botaoCancelar.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-disabled.png"))));
 		botaoCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoCancelar.setBorder(null);
 		botaoCancelar.setBounds(199, 92, 120, 35);
@@ -149,12 +150,12 @@ public class InterfaceMenu extends JFrame {
 		
 		jogoFacil = new JButton();
 		jogoFacil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		jogoFacil.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-disabled.png"));
-		jogoFacil.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-rollover.png"));
-		jogoFacil.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-rollover.png"));
-		jogoFacil.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-pressed.png"));
-		jogoFacil.setIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-normal.png"));
-		jogoFacil.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtM-facil-disabled.png"));
+		jogoFacil.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-disabled.png"))));
+		jogoFacil.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-rollover.png"))));
+		jogoFacil.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-rollover.png"))));
+		jogoFacil.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-pressed.png"))));
+		jogoFacil.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-normal.png"))));
+		jogoFacil.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-facil-disabled.png"))));
 		jogoFacil.setHorizontalTextPosition(SwingConstants.CENTER);
 		jogoFacil.setBorder(null);
 		jogoFacil.setBounds(10, 11, 240, 70);
@@ -162,30 +163,30 @@ public class InterfaceMenu extends JFrame {
 		
 		jogoDificil = new JButton();
 		jogoDificil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		jogoDificil.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-disabled.png"));
-		jogoDificil.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-rollover.png"));
-		jogoDificil.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-rollover.png"));
-		jogoDificil.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-pressed.png"));
-		jogoDificil.setIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-normal.png"));
-		jogoDificil.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtM-dificil-disabled.png"));
+		jogoDificil.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-disabled.png"))));
+		jogoDificil.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-rollover.png"))));
+		jogoDificil.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-rollover.png"))));
+		jogoDificil.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-pressed.png"))));
+		jogoDificil.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-normal.png"))));
+		jogoDificil.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtM-dificil-disabled.png"))));
 		jogoDificil.setHorizontalTextPosition(SwingConstants.CENTER);
 		jogoDificil.setBorder(null);
 		jogoDificil.setBounds(264, 11, 240, 70);
 		opcoes.add(jogoDificil);
 
-		icone = new JLabel(new ImageIcon(jogador_logado.getIcone()));
+		icone = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(jogador_logado.getIcone()))));
 		icone.setBorder(new LineBorder(new Color(0, 0, 0)));
 		icone.setBounds(669, 261, 100, 100);
 		getContentPane().add(icone);
 		
 		botaoHelp = new JButton();
 		botaoHelp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoHelp.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-disabled.png"));
-		botaoHelp.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-rollover.png"));
-		botaoHelp.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-help-rollover.png"));
-		botaoHelp.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-help-pressed.png"));
-		botaoHelp.setIcon(new ImageIcon(".\\image\\graphics\\BtP-help-normal.png"));
-		botaoHelp.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-help-disabled.png"));
+		botaoHelp.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-disabled.png"))));
+		botaoHelp.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-rollover.png"))));
+		botaoHelp.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-rollover.png"))));
+		botaoHelp.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-pressed.png"))));
+		botaoHelp.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-normal.png"))));
+		botaoHelp.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-help-disabled.png"))));
 		botaoHelp.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoHelp.setBorder(null);
 		botaoHelp.setBounds(739, 519, 45, 45);
@@ -252,12 +253,12 @@ public class InterfaceMenu extends JFrame {
 		
 		botaoVoltar = new JButton();
 		botaoVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoVoltar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
-		botaoVoltar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		botaoVoltar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		botaoVoltar.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-pressed.png"));
-		botaoVoltar.setIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-normal.png"));
-		botaoVoltar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
+		botaoVoltar.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
+		botaoVoltar.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		botaoVoltar.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		botaoVoltar.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-pressed.png"))));
+		botaoVoltar.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-normal.png"))));
+		botaoVoltar.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
 		botaoVoltar.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoVoltar.setBorder(null);
 		botaoVoltar.setBounds(161, 259, 90, 90);
@@ -266,15 +267,15 @@ public class InterfaceMenu extends JFrame {
 		somBt = new JButton();
 		somBt.setBounds(704, 530, 25, 25);
 		if (Som.somAtivo){
-			somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-			somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-			somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-pressed.png"));
-			somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-normal.png"));
+			somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+			somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+			somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-pressed.png"))));
+			somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-normal.png"))));
 		} else {
-			somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-			somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-			somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-pressed.png"));
-			somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-normal.png"));
+			somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+			somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+			somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-pressed.png"))));
+			somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-normal.png"))));
 		}
 		somBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		somBt.setBorder(null);
@@ -356,15 +357,15 @@ public class InterfaceMenu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Som.somAtivo = !Som.somAtivo;
 				if (Som.somAtivo){
-					somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-					somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-					somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-pressed.png"));
-					somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-normal.png"));
+					somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+					somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+					somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-pressed.png"))));
+					somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-normal.png"))));
 				} else {
-					somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-					somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-					somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-pressed.png"));
-					somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-normal.png"));
+					somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+					somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+					somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-pressed.png"))));
+					somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-normal.png"))));
 				}
 				Som.somClick();
 			}
@@ -429,25 +430,25 @@ public class InterfaceMenu extends JFrame {
 					
 					Participante IA1;
 					if (jogador_logado.getIcone().contains("Pernalonga")){
-						IA1 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+						IA1 = new InteligenciaArtificial("Gaguinho", "/image/icon/Gaguinho.png", false);
 					} else {
-						IA1 = new InteligenciaArtificial("Pernalonga", ".\\image\\icon\\Pernalonga.png", false);
+						IA1 = new InteligenciaArtificial("Pernalonga", "/image/icon/Pernalonga.png", false);
 					}
 					participantes.add(IA1);
 					
 					Participante IA2;
 					if (jogador_logado.getIcone().contains("Lola")){
-						IA2 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+						IA2 = new InteligenciaArtificial("Gaguinho", "/image/icon/Gaguinho.png", false);
 					} else {
-						IA2 = new InteligenciaArtificial("Lola", ".\\image\\icon\\Lola.png", false);
+						IA2 = new InteligenciaArtificial("Lola", "/image/icon/Lola.png", false);
 					}
 					participantes.add(IA2);
 					
 					Participante IA3;
 					if (jogador_logado.getIcone().contains("Patolino")){
-						IA3 = new InteligenciaArtificial("Gaguinho", ".\\image\\icon\\Gaguinho.png", false);
+						IA3 = new InteligenciaArtificial("Gaguinho", "/image/icon/Gaguinho.png", false);
 					} else {
-						IA3 = new InteligenciaArtificial("Patolino", ".\\image\\icon\\Patolino.png", false);
+						IA3 = new InteligenciaArtificial("Patolino", "/image/icon/Patolino.png", false);
 					}
 					participantes.add(IA3);
 					
@@ -496,25 +497,25 @@ public class InterfaceMenu extends JFrame {
 					
 					Participante IA1;
 					if (jogador_logado.getIcone().contains("Taz")){
-						IA1 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+						IA1 = new InteligenciaArtificial("Frajola", "/image/icon/Frajola.png", true);
 					} else {
-						IA1 = new InteligenciaArtificial("Taz", ".\\image\\icon\\Taz.png", true);
+						IA1 = new InteligenciaArtificial("Taz", "/image/icon/Taz.png", true);
 					}
 					participantes.add(IA1);
 					
 					Participante IA2;
 					if (jogador_logado.getIcone().contains("Eufrazino")){
-						IA2 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+						IA2 = new InteligenciaArtificial("Frajola", "/image/icon/Frajola.png", true);
 					} else {
-						IA2 = new InteligenciaArtificial("Eufrazino", ".\\image\\icon\\Eufrazino.png", true);
+						IA2 = new InteligenciaArtificial("Eufrazino", "/image/icon/Eufrazino.png", true);
 					}
 					participantes.add(IA2);
 					
 					Participante IA3;
 					if (jogador_logado.getIcone().contains("Marvin")){
-						IA3 = new InteligenciaArtificial("Frajola", ".\\image\\icon\\Frajola.png", true);
+						IA3 = new InteligenciaArtificial("Frajola", "/image/icon/Frajola.png", true);
 					} else {
-						IA3 = new InteligenciaArtificial("Marvin", ".\\image\\icon\\Marvin.png", true);
+						IA3 = new InteligenciaArtificial("Marvin", "/image/icon/Marvin.png", true);
 					}
 					participantes.add(IA3);
 					

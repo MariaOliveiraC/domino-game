@@ -9,7 +9,8 @@ public class Conexao {
 public Connection conexao() {
 	Connection con = null;
 	try {
-		con = DriverManager.getConnection("jdbc:sqlite:db/engenharia_software.db");
+		con = DriverManager.getConnection("jdbc:sqlite::resource:db/engenharia_software.db");
+		//con = DriverManager.getConnection("jdbc:sqlite:src/db/engenharia_software.db");
 	} catch (SQLException e) {
 		System.err.println("Erro na conexão!");
 	}
