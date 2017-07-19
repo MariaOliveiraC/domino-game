@@ -1,6 +1,6 @@
 package controle;
 
-import java.io.File;
+import java.net.URL;
 import java.util.Random;
 
 import javax.sound.sampled.AudioInputStream;
@@ -15,8 +15,7 @@ public class Som {
 		if (somAtivo){
 			Random r = new Random();
 			int random = r.nextInt(5);
-			File drop = new File("./sound/drop" + random + ".wav"); //chama um efeito sonoro aleatório
-	
+			URL drop = Som.class.getResource("/sound/drop" + random + ".wav");	
 	        Clip clip;
 			try {
 				clip = AudioSystem.getClip();
@@ -33,7 +32,7 @@ public class Som {
 	
 	public static void somPegaUma(){
 		if (somAtivo){
-			File take = new File("./sound/take.wav");
+			URL take = Som.class.getResource("/sound/take.wav");
 	        Clip clip;
 			try {
 				clip = AudioSystem.getClip();
@@ -50,7 +49,7 @@ public class Som {
 	
 	public static void somEmbaralha(){
 		if (somAtivo){
-			File shake = new File("./sound/shake.wav");
+			URL shake = Som.class.getResource("/sound/shake.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();
@@ -67,7 +66,7 @@ public class Som {
 	
 	public static void somClick(){
 		if (somAtivo){
-			File click = new File("./sound/click.wav");
+			URL click = Som.class.getResource("/sound/click.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();
@@ -84,7 +83,7 @@ public class Som {
 	
 	public static void somPassouVez(){
 		if (somAtivo){
-			File passouVez = new File("./sound/passouVez.wav");
+			URL passouVez = Som.class.getResource("/sound/passouVez.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();
@@ -101,7 +100,7 @@ public class Som {
 	
 	public static void somVenceuPartida(){
 		if (somAtivo){
-			File venceuPartida = new File("./sound/venceuPartida.wav");
+			URL venceuPartida = Som.class.getResource("/sound/venceuPartida.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();
@@ -118,7 +117,7 @@ public class Som {
 	
 	public static void somPerdeuPartida(){
 		if (somAtivo){
-			File perdeuPartida = new File("./sound/perdeuPartida.wav");
+			URL perdeuPartida = Som.class.getResource("/sound/perdeuPartida.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();
@@ -135,7 +134,7 @@ public class Som {
 	
 	public static void somVenceuRodada(){
 		if (somAtivo){
-			File venceuRodada = new File("./sound/venceuRodada.wav");
+			URL venceuRodada = Som.class.getResource("/sound/venceuRodada.wav");
 			Clip clip;
 			try {
 		        clip = AudioSystem.getClip();

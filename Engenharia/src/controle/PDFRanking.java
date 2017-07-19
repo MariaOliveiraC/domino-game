@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import java.io.File;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -17,6 +20,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+
 import modelo.Jogador;
 
 public class PDFRanking {
@@ -31,8 +35,10 @@ public class PDFRanking {
 			
 			document.open();
 			document.setPageSize(PageSize.A4);
-			
+	
+			// links assim não funcionarão dentro do .jar
 			Image topo = Image.getInstance("C:\\Domino\\domino-game\\Engenharia\\image\\graphics\\domino_pdf.png");
+			
 			topo.scaleToFit(420, 420);
 			topo.setAlignment(Element.ALIGN_CENTER);
 			document.add(topo);

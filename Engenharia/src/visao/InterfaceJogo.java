@@ -1,13 +1,13 @@
 package visao;
 
 import java.awt.BorderLayout;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -121,7 +121,7 @@ public class InterfaceJogo extends JFrame {
 		pontosCim.setForeground(Color.WHITE);
 		pontosCim.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		inforCima = new JLabel(new ImageIcon(part.participantes.get(2).getIcone()));
+		inforCima = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(part.participantes.get(2).getIcone()))));
 		inforCima.setPreferredSize(new Dimension(100, 100));
 		iaUpPainel.add(inforCima);
 		inforCima.setMaximumSize(new Dimension(100, 100));
@@ -179,15 +179,15 @@ public class InterfaceJogo extends JFrame {
 		
 		somBt = new JButton();
 		if (Som.somAtivo){
-			somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-			somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-			somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-pressed.png"));
-			somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-normal.png"));
+			somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+			somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+			somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-pressed.png"))));
+			somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-normal.png"))));
 		} else {
-			somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-			somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-			somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-pressed.png"));
-			somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-normal.png"));
+			somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+			somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+			somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-pressed.png"))));
+			somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-normal.png"))));
 		}
 		somBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		somBt.setBorder(null);
@@ -203,7 +203,7 @@ public class InterfaceJogo extends JFrame {
 		getContentPane().add(iaLeftPainel, BorderLayout.WEST);
 		iaLeftPainel.setLayout(new BoxLayout(iaLeftPainel, BoxLayout.PAGE_AXIS));
 		
-		inforEsquerda = new JLabel(new ImageIcon(part.participantes.get(1).getIcone()));
+		inforEsquerda = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(part.participantes.get(1).getIcone()))));
 		inforEsquerda.setPreferredSize(new Dimension(10, 100));
 		iaLeftPainel.add(inforEsquerda);
 		inforEsquerda.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -262,7 +262,7 @@ public class InterfaceJogo extends JFrame {
 		jogadorPainel.add(inforBaixoP);
 		inforBaixoP.setLayout(new BoxLayout(inforBaixoP, BoxLayout.LINE_AXIS));
 		
-		inforBaixo = new JLabel(new ImageIcon(part.participantes.get(0).getIcone()));
+		inforBaixo = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(part.participantes.get(0).getIcone()))));
 		inforBaixo.setPreferredSize(new Dimension(100, 100));
 		inforBaixo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforBaixoP.add(inforBaixo);
@@ -307,12 +307,12 @@ public class InterfaceJogo extends JFrame {
 		blockBxoDir.setLayout(new BoxLayout(blockBxoDir, BoxLayout.PAGE_AXIS));
 		
 		JButton voltarBt = new JButton();
-		voltarBt.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
-		voltarBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		voltarBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-rollover.png"));
-		voltarBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-pressed.png"));
-		voltarBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-normal.png"));
-		voltarBt.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-voltar-disabled.png"));
+		voltarBt.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
+		voltarBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		voltarBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-rollover.png"))));
+		voltarBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-pressed.png"))));
+		voltarBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-normal.png"))));
+		voltarBt.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-voltar-disabled.png"))));
 		voltarBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		voltarBt.setBorder(null);
 		voltarBt.setMinimumSize(new Dimension(90, 90));
@@ -322,12 +322,12 @@ public class InterfaceJogo extends JFrame {
 		blockBxoEsq.add(voltarBt);
 		
 		JButton salvarBt = new JButton();
-		salvarBt.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-disabled.png"));
-		salvarBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-rollover.png"));
-		salvarBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-rollover.png"));
-		salvarBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-pressed.png"));
-		salvarBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-normal.png"));
-		salvarBt.setDisabledIcon(new ImageIcon(".\\image\\graphics\\BtP-salvar-disabled.png"));
+		salvarBt.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-disabled.png"))));
+		salvarBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-rollover.png"))));
+		salvarBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-rollover.png"))));
+		salvarBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-pressed.png"))));
+		salvarBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-normal.png"))));
+		salvarBt.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-salvar-disabled.png"))));
 		salvarBt.setHorizontalTextPosition(SwingConstants.CENTER);
 		salvarBt.setBorder(null);
 		salvarBt.setMinimumSize(new Dimension(90, 90));
@@ -373,7 +373,7 @@ public class InterfaceJogo extends JFrame {
 		pontosDir.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inforDireitaP.add(pontosDir);
 		
-		inforDireita = new JLabel(new ImageIcon(part.participantes.get(3).getIcone()));
+		inforDireita = new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(part.participantes.get(3).getIcone()))));
 		inforDireita.setPreferredSize(new Dimension(100, 100));
 		iaRightPainel.add(inforDireita);
 		inforDireita.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -550,15 +550,15 @@ public class InterfaceJogo extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Som.somAtivo = !Som.somAtivo;
 				if (Som.somAtivo){
-					somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-					somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-rollover.png"));
-					somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-pressed.png"));
-					somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somE-normal.png"));
+					somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+					somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-rollover.png"))));
+					somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-pressed.png"))));
+					somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somE-normal.png"))));
 				} else {
-					somBt.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-					somBt.setRolloverIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-rollover.png"));
-					somBt.setPressedIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-pressed.png"));
-					somBt.setIcon(new ImageIcon(".\\image\\graphics\\BtP-somD-normal.png"));
+					somBt.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+					somBt.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-rollover.png"))));
+					somBt.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-pressed.png"))));
+					somBt.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/BtP-somD-normal.png"))));
 				}
 				Som.somClick();
 			}
@@ -1424,7 +1424,7 @@ public class InterfaceJogo extends JFrame {
 			String nome = m.getName();
 			int v1 = Integer.parseInt("" + nome.charAt(0));
 			int v2 = Integer.parseInt("" + nome.charAt(1));
-			m.setIcon(new ImageIcon(".\\image\\peca\\peca" + v1 + v2 + ".png"));
+			m.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/peca" + v1 + v2 + ".png"))));
 		}
 		Component[] c1 = iaCimaPecas.getComponents();
 		for (Component j: c1){
@@ -1432,7 +1432,7 @@ public class InterfaceJogo extends JFrame {
 			String nome = m.getName();
 			int v1 = Integer.parseInt("" + nome.charAt(0));
 			int v2 = Integer.parseInt("" + nome.charAt(1));
-			m.setIcon(new ImageIcon(".\\image\\peca\\peca" + v1 + v2 + ".png"));
+			m.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/peca" + v1 + v2 + ".png"))));
 		}
 		Component[] c2 = iaDireitaPecas.getComponents();
 		for (Component j: c2){
@@ -1440,7 +1440,7 @@ public class InterfaceJogo extends JFrame {
 			String nome = m.getName();
 			int v1 = Integer.parseInt("" + nome.charAt(0));
 			int v2 = Integer.parseInt("" + nome.charAt(1));
-			m.setIcon(new ImageIcon(".\\image\\peca\\peca" + v1 + v2 + ".png"));
+			m.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/peca" + v1 + v2 + ".png"))));
 		}
 		Component[] c3 = iaEsquerdaPecas.getComponents();
 		for (Component j: c3){
@@ -1448,7 +1448,7 @@ public class InterfaceJogo extends JFrame {
 			String nome = m.getName();
 			int v1 = Integer.parseInt("" + nome.charAt(0));
 			int v2 = Integer.parseInt("" + nome.charAt(1));
-			m.setIcon(new ImageIcon(".\\image\\peca\\peca" + v1 + v2 + ".png"));
+			m.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/peca/peca" + v1 + v2 + ".png"))));
 		}
 	}
 }

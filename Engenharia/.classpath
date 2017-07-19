@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Domino/domino-game/Engenharia/lib/sqlite-jdbc-3.16.1.jar"/>
-	<classpathentry kind="lib" path="C:/Domino/domino-game/Engenharia/lib/iText-5.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Domino/domino-game/Engenharia/src/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="lib" path="C:/Domino/domino-game/Engenharia/src/lib/iText-5.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
@@ -93,12 +94,12 @@ public class InterfaceInicial extends JFrame {
 		
 		botaoCancelar = new JButton();
 		botaoCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoCancelar.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-pressed.png"));
-		botaoCancelar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
-		botaoCancelar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-rollover.png"));
-		botaoCancelar.setIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-normal.png"));
-		botaoCancelar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-disabled.png"));
-		botaoCancelar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-cancelar-disabled.png"));
+		botaoCancelar.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-pressed.png"))));
+		botaoCancelar.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-rollover.png"))));
+		botaoCancelar.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-rollover.png"))));
+		botaoCancelar.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-normal.png"))));
+		botaoCancelar.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-disabled.png"))));
+		botaoCancelar.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cancelar-disabled.png"))));
 		botaoCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoCancelar.setBorder(null);
 		botaoCancelar.setBounds(15, 242, 113, 35);
@@ -112,12 +113,12 @@ public class InterfaceInicial extends JFrame {
 
 		botaoCadastro = new JButton();
 		botaoCadastro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoCadastro.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-disabled.png"));
-		botaoCadastro.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-rollover.png"));
-		botaoCadastro.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-rollover.png"));
-		botaoCadastro.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-pressed.png"));
-		botaoCadastro.setIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-normal.png"));
-		botaoCadastro.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-cadastro-disabled.png"));
+		botaoCadastro.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-disabled.png"))));
+		botaoCadastro.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-rollover.png"))));
+		botaoCadastro.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-rollover.png"))));
+		botaoCadastro.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-pressed.png"))));
+		botaoCadastro.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-normal.png"))));
+		botaoCadastro.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-cadastro-disabled.png"))));
 		botaoCadastro.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoCadastro.setBorder(null);
 		botaoCadastro.setBounds(39, 207, 120, 35);
@@ -125,12 +126,12 @@ public class InterfaceInicial extends JFrame {
 		
 		botaoLogin = new JButton();
 		botaoLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botaoLogin.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-login-rollover.png"));
-		botaoLogin.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-login-rollover.png"));
-		botaoLogin.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-login-pressed.png"));
-		botaoLogin.setIcon(new ImageIcon(".\\image\\graphics\\Bt-login-normal.png"));
-		botaoLogin.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-login-disabled.png"));
-		botaoLogin.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-login-disabled.png"));
+		botaoLogin.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-rollover.png"))));
+		botaoLogin.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-rollover.png"))));
+		botaoLogin.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-pressed.png"))));
+		botaoLogin.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-normal.png"))));
+		botaoLogin.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-disabled.png"))));
+		botaoLogin.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-login-disabled.png"))));
 		botaoLogin.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoLogin.setBorder(null);
 		botaoLogin.setBounds(39, 253, 120, 35);
@@ -139,12 +140,12 @@ public class InterfaceInicial extends JFrame {
 		JButton botaoSair = new JButton();
 		botaoSair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		botaoSair.setBorder(null);
-		botaoSair.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-disabled.png"));
-		botaoSair.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-disabled.png"));
-		botaoSair.setIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-normal.png"));
-		botaoSair.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-pressed.png"));
-		botaoSair.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-rollover.png"));
-		botaoSair.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-sair-rollover.png"));
+		botaoSair.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-disabled.png"))));
+		botaoSair.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-disabled.png"))));
+		botaoSair.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-normal.png"))));
+		botaoSair.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-pressed.png"))));
+		botaoSair.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-rollover.png"))));
+		botaoSair.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-sair-rollover.png"))));
 		botaoSair.setHorizontalTextPosition(SwingConstants.CENTER);
 		botaoSair.setBounds(39, 299, 120, 35);
 		getContentPane().add(botaoSair);
@@ -168,12 +169,12 @@ public class InterfaceInicial extends JFrame {
 				iconeCombobox.setVisible(false);
 				icone.setVisible(false);
 				
-				botaoEntrar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-rollover.png"));
-				botaoEntrar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-rollover.png"));
-				botaoEntrar.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-pressed.png"));
-				botaoEntrar.setIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-normal.png"));
-				botaoEntrar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-disabled.png"));
-				botaoEntrar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-entrar-disabled.png"));
+				botaoEntrar.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-rollover.png"))));
+				botaoEntrar.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-rollover.png"))));
+				botaoEntrar.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-pressed.png"))));
+				botaoEntrar.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-normal.png"))));
+				botaoEntrar.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-disabled.png"))));
+				botaoEntrar.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-entrar-disabled.png"))));
 			}
 		});
 		
@@ -188,12 +189,12 @@ public class InterfaceInicial extends JFrame {
 				botaoLogin.setEnabled(false);
 				icone.setVisible(true);
 
-				botaoEntrar.setRolloverSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-rollover.png"));
-				botaoEntrar.setRolloverIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-rollover.png"));
-				botaoEntrar.setPressedIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-pressed.png"));
-				botaoEntrar.setIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-normal.png"));
-				botaoEntrar.setDisabledSelectedIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-disabled.png"));
-				botaoEntrar.setDisabledIcon(new ImageIcon(".\\image\\graphics\\Bt-concluir-disabled.png"));
+				botaoEntrar.setRolloverSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-rollover.png"))));
+				botaoEntrar.setRolloverIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-rollover.png"))));
+				botaoEntrar.setPressedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-pressed.png"))));
+				botaoEntrar.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-normal.png"))));
+				botaoEntrar.setDisabledSelectedIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-disabled.png"))));
+				botaoEntrar.setDisabledIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/graphics/Bt-concluir-disabled.png"))));
 			}
 		});
 
@@ -246,7 +247,7 @@ public class InterfaceInicial extends JFrame {
 							if(!dao.searchJogador(nome.getText())){
 								jogador.setNome(nome.getText());
 								jogador.setSenha(senhaTxt);
-								jogador.setIcone(".\\image\\icon\\"+((String)iconeCombobox.getSelectedItem())+".png");
+								jogador.setIcone("/image/icon/"+((String)iconeCombobox.getSelectedItem())+".png");
 								dao.insert(jogador);
 								nome.setText("");
 								senha.setText("");
@@ -266,7 +267,11 @@ public class InterfaceInicial extends JFrame {
 		iconeCombobox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String comboSelecionado = (String) iconeCombobox.getSelectedItem();
-				icone.setIcon(new ImageIcon(".\\image\\icon\\" + comboSelecionado + ".png"));
+				if (comboSelecionado.equals("")){
+					icone.setIcon(null);
+				}else{
+					icone.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/icon/" + comboSelecionado + ".png"))));
+			    }
 			}
 		});
 		
